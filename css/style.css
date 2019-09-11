@@ -1,0 +1,43 @@
+body{
+    background-color: teal;
+}
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    font-size: 2em;
+}
+img{
+    margin-left: 20%;
+    max-width: 59%;
+}
+h2{
+    color: maroon;
+    background-color: deepskyblue;
+    border: solid;
+}
+h3{
+    text-shadow: 3px 3px cornflowerblue;
+}
+h4{
+    font-size: 1.5em;
+    border-bottom: solid;
+    border-bottom-color: goldenrod;
+    font-family: cursive;
+}
+
+#aboutMe{
+    border: solid;
+    border-color: dodgerblue;
+    background-color: aqua;
+}
+
+#aboutMe > article{
+    display: block;
+    float: left;
+}
+
+#description{
+    display: block;
+    text-align: center;
+    size: 10px;
+    border: dashed;
+}
