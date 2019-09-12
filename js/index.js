@@ -7,119 +7,148 @@ while (name === '') {
     name = prompt('Your name please.');
 }
 
-alert(name + ', welcome to my site!')
+alert(name + ', welcome to my site! Are you ready for a quize about me? (You don\'t actually have a choice)')
 
-var seattleAns = prompt('Were you born in the Seattle aera?');
-var responce;
+var correct = 0;
 
-seattleAns = seattleAns.toLocaleLowerCase();
-console.log('User entered: ' + seattleAns);
+var yesNoQuestion = [['Yes or no, have I only lived in Seattle?', 'Do you think I have ever left the continent?', 'Do you belive I\'ve had 5 run-ins with bears while camping', 'Do you think I prefer dogs over cats?', 'Do you think I\'ve ever competed in a national championship?'],
+['Yes, I\'ve never lived outside the city, and only in two neighborhoods at that.', 'Yes I have, but only to Europe and I still want to travel more.', 'Actually it\'s only been 4 times, 2 grizzlies in Cananda and 2 black bears here in Washington', 'Only slightly my reference is a lovable idot vs a right fine b****.', 'My favorite bit of trivia. I competed in lightweight rowing durring my one year at Seattle U.'],
+['I\'ve actually only ever lived in Magnolia and Capital Hill', 'Actually I\'ve been to europe twice and still desire to travel more.', 'Correct it\'s only happened 4 time, and two instences were this summer!', 'Would probably be a coin flip if my famliey\'s cat wasn\'t so rude.', 'Surprisingly, I actually have for LightWeight Rowing in 2016.']];
 
-if (seattleAns === 'y' || seattleAns === 'yes') {
+//accadently have my cordenates on my array swapped, still works
+for (var i = 0; i < yesNoQuestion[0].length; i++) {
+    var responce = prompt(yesNoQuestion[0][i]);
 
-    responce = 'Wow so was I!';
+    responce = responce.toLocaleLowerCase();
+    console.log('User entered: ' + responce);
 
-} else if (seattleAns === 'n' || seattleAns === 'no') {
+    if (responce === 'y' || responce === 'yes') {
 
-    responce = 'So you moved here later in life';
+        alert(yesNoQuestion[1][i]);
+        correct++;
 
-} else {
+    } else if (responce === 'n' || responce === 'no') {
 
-    responce = 'You didn\'t enter a valid responce';
-    console.log('User put in invalid entry');
+        alert(yesNoQuestion[2][i]);
+
+    } else {
+
+        alert('You didn\'t enter a valid responce');
+        console.log('User put in invalid entry');
+
+    }
+}
+
+var chances = 4;
+var found = false;
+var secretNumber = Math.round(Math.random() * 10);
+
+console.log(secretNumber);
+
+do {
+
+    var guess = prompt('Can you guess my favorite random number between 1 and 10? You have ' + chances + ' remaining');
+
+    var guessNum = parseInt(guess);
+    console.log('The user guessed ' + guessNum)
+    
+    if (guessNum !== NaN) {
+    
+        if (guessNum > secretNumber) {
+
+            alert('You guessed too high, try again.');
+            chances--;
+
+        } else if (guessNum < secretNumber) {
+
+            alert('You guessed too low, try again.');
+            chances--;
+
+        } else {
+
+            found = true;
+
+            if (chances === 4) {
+
+                alert('First try that\'s impressive!');
+                correct++;
+            
+            } else {
+
+                alert('Nice Job you found the number!')
+                correct++;
+
+            }
+        
+        }
+
+    } else {
+
+        alert('Your entery was not a number that will cost you a guess.')
+
+    }
+
+} while (!found && chances > 0);
+
+var possibleAnswers = ['bax', 'mr bax', 'stupid', 'rug', 'smiley', 'the rodent', 'ever hopeful', 'baxter b banana brains stanley'];
+var guesses = 6;
+found = false;
+
+while (!found && guesses > 0) {
+
+    var guess = prompt('Can you guess any of my familey\'s dog\'s nicknames? (His name is Baxter)');
+    var guessLowerCase = guess.toLocaleLowerCase();
+
+    for (var i = 0; i < possibleAnswers.length; i++) {
+
+        if (guessLowerCase == possibleAnswers[i]) {
+
+            found = true;
+
+        }
+
+    }
+
+    if (!found) {
+
+        guesses--;
+        alert('That\'s not one of the possible answers. you have ' + guesses + ' guesses remaining.');
+        
+    } else {
+
+        alert('yes ' + guess + ' is a valid answer');
+        correct++;
+
+    }
+
+    if (guesses === 0) {
+
+        alert('You ran out of guesses...');
+
+    }
 
 }
 
-alert(responce);
+var printAnswers = '';
 
-var travel = prompt('Have you ever left the country?');
-var responce2;
+for (var i = 0; i < possibleAnswers.length; i++) {
 
-travel = travel.toLocaleLowerCase();
-console.log('User entered: ' + travel);
+    if (i === 0) {
 
-if (travel === 'y' || travel === 'yes') {
+        printAnswers = possibleAnswers[i];
+    
+    } else if (i + 1 === possibleAnswers.length) {
 
-    responce2 = 'It\'s always nice to get out and see the world';
+        printAnswers = printAnswers + ' and ' + possibleAnswers[i];
 
-} else if (travel === 'n' || travel === 'no') {
-
-    responce2 = 'Take a weekend! Canada is so close!';
-
-} else {
-
-    responce2 = 'You didn\'t enter a valid responce';
-    console.log('User put in invalid entry');
+    } else {
+    
+        printAnswers = printAnswers + ', ' + possibleAnswers[i];
+    
+    }
 
 }
 
-alert(responce2);
+alert('All possible answers were ' + printAnswers);
 
-var code = prompt('Do you have expierence coding?');
-var responce3;
-
-code = code.toLocaleLowerCase();
-console.log('User entered: ' + code);
-
-if (code === 'y' || code === 'yes') {
-
-    responce3 = 'Well I\'m looking forward to what we can learn!';
-
-} else if (code === 'n' || code === 'no') {
-
-    responce3 = 'If you need help feel free to ask me!';
-
-} else {
-
-    responce3 = 'You didn\'t enter a valid responce';
-    console.log('User put in invalid entry');
-
-}
-
-alert(responce3);
-
-var dog = prompt('Do you like cats?');
-var responce4;
-
-dog = dog.toLocaleLowerCase();
-console.log('User entered: ' + dog);
-
-
-if (dog === 'y' || dog === 'yes') {
-
-    responce4 = 'Good prepare to be dissapointed.';
-
-} else if (dog === 'n' || dog === 'no') {
-
-    responce4 = 'Well I hope you like dogs instead.';
-
-} else {
-
-    responce4 = 'You didn\'t enter a valid responce';
-    console.log('User put in invalid entry');
-
-}
-
-alert(responce4);
-
-var douglasFern = prompt('Have you ever seen a douglas fern?');
-douglasFern = douglasFern.toLocaleLowerCase();
-console.log('User entered: ' + douglasFern);
-var responce5;
-
-if (douglasFern === 'y' || douglasFern === 'yes') {
-
-    responce5 = 'I don\'t think you read the question closely...';
-
-} else if (douglasFern === 'n' || douglasFern === 'no') {
-
-    responce5 = 'You chose wisely.';
-
-} else {
-
-    responce5 = 'You didn\'t enter a valid responce';
-    console.log('User put in invalid entry');
-
-}
-
-alert(responce5);
+alert( name + ', you got ' + correct + ' answers in this quiz correct.');
