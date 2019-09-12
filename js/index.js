@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 // var allowdAnswers = ['y','n','yes','no']
 
 var name = prompt('What is your name?');
