@@ -13,7 +13,8 @@ var correct = 0;
 
 var yesNoQuestion = [['Yes or no, have I only lived in Seattle?', 'Do you think I have ever left the continent?', 'Do you belive I\'ve had 5 run-ins with bears while camping', 'Do you think I prefer dogs over cats?', 'Do you think I\'ve ever competed in a national championship?'],
 ['Yes, I\'ve never lived outside the city, and only in two neighborhoods at that.', 'Yes I have, but only to Europe and I still want to travel more.', 'Actually it\'s only been 4 times, 2 grizzlies in Cananda and 2 black bears here in Washington', 'Only slightly my reference is a lovable idot vs a right fine b****.', 'My favorite bit of trivia. I competed in lightweight rowing durring my one year at Seattle U.'],
-['I\'ve actually only ever lived in Magnolia and Capital Hill', 'Actually I\'ve been to europe twice and still desire to travel more.', 'Correct it\'s only happened 4 time, and two instences were this summer!', 'Would probably be a coin flip if my famliey\'s cat wasn\'t so rude.', 'Surprisingly, I actually have for LightWeight Rowing in 2016.']];
+['I\'ve actually only ever lived in Magnolia and Capital Hill', 'Actually I\'ve been to europe twice and still desire to travel more.', 'Correct it\'s only happened 4 time, and two instences were this summer!', 'Would probably be a coin flip if my famliey\'s cat wasn\'t so rude.', 'Surprisingly, I actually have for LightWeight Rowing in 2016.'],
+[true,true,false,true,true]];
 
 //accadently have my cordenates on my array swapped, still works
 for (var i = 0; i < yesNoQuestion[0].length; i++) {
@@ -25,11 +26,24 @@ for (var i = 0; i < yesNoQuestion[0].length; i++) {
     if (responce === 'y' || responce === 'yes') {
 
         alert(yesNoQuestion[1][i]);
-        correct++;
+        
+        if (yesNoQuestion[3][i]) {
+
+            correct++;
+            console.log('Correct answers: ' + correct);
+
+        }
 
     } else if (responce === 'n' || responce === 'no') {
 
         alert(yesNoQuestion[2][i]);
+
+        if (!yesNoQuestion[3][i]) {
+
+            correct++;
+            console.log('Correct answers: ' + correct);
+
+        }
 
     } else {
 
@@ -72,11 +86,13 @@ do {
 
                 alert('First try that\'s impressive!');
                 correct++;
+                console.log('Correct answers: ' + correct);
             
             } else {
 
                 alert('Nice Job you found the number!')
                 correct++;
+                console.log('Correct answers: ' + correct);
 
             }
         
@@ -118,6 +134,7 @@ while (!found && guesses > 0) {
 
         alert('yes ' + guess + ' is a valid answer');
         correct++;
+        console.log('Correct answers: ' + correct);
 
     }
 
