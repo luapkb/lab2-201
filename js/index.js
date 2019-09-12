@@ -131,6 +131,7 @@ do {
 
 } while (!found && chances > 0);
 
+//Dog nicknames for the next quesition
 var possibleAnswers = [
   'bax',
   'mr bax',
@@ -141,6 +142,7 @@ var possibleAnswers = [
   'ever hopeful',
   'baxter b banana brains stanley'
 ];
+
 var guesses = 6;
 found = false;
 
