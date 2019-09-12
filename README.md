@@ -11,3 +11,7 @@ update CSS
 Bonus:
 Turn the first 5 questions into a 2d array
 make the number guessing random
+
+partner programing 
+driver Paul Bennnett
+navigator chris stanley
